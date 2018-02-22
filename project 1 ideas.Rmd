@@ -42,7 +42,7 @@ ggplot(Marriage, aes(x = prevconc, y = age, color = person)) + geom_boxplot()
 
 ```{r, message = FALSE}
 ggplot(Marriage, aes(x = person, y = age, color = prevconc)) + geom_boxplot()
-```
+``` 
 
 
 ```{r, message = FALSE}
