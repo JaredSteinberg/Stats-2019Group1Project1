@@ -1,0 +1,51 @@
+---
+title: "Project 1"
+author: "Jared Steinberg"
+date: "2/21/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyr)
+library(tidyverse)
+library(ggplot2)
+library(babynames)
+library(mdsr)
+data("Marriage")
+glimpse(Marriage)
+```
+
+```{r, message = FALSE}
+ggplot(Marriage, aes(x = race, y = age)) + geom_boxplot(aes(fill = person))
+```
+
+
+
+```{r, message = FALSE}
+ggplot(Marriage, aes(x = race, y = college, color = person)) + geom_boxplot()
+```
+
+
+```{r, message = FALSE}
+ggplot(Marriage, aes(x = person, y = college, color = race)) + geom_boxplot()
+```
+
+
+
+```{r, message = FALSE}
+ggplot(Marriage, aes(x = person, y = age, color = race)) + geom_boxplot()
+```
+```{r, message = FALSE}
+ggplot(Marriage, aes(x = prevconc, y = age, color = person)) + geom_boxplot()
+```
+
+```{r, message = FALSE}
+ggplot(Marriage, aes(x = person, y = age, color = prevconc)) + geom_boxplot()
+```
+
+
+```{r, message = FALSE}
+ggplot(Marriage, aes(x = sign, y = age, color = person)) + geom_boxplot()
+```
+
