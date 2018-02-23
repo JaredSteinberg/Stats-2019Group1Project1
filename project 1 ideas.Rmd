@@ -7,11 +7,8 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(tidyr)
 library(tidyverse)
-library(ggplot2)
-library(babynames)
-library(mdsr)
+data(Marriage, package = "mosaicData")
 data("Marriage")
 glimpse(Marriage)
 ```
@@ -23,7 +20,11 @@ ggplot(Marriage, aes(x = race, y = age)) + geom_boxplot(aes(fill = person))
 
 #Use this one?
 ```{r, message = FALSE}
-ggplot(Marriage, aes(x = race, y = college, color = person)) + geom_boxplot()
+plot <- ggplot(Marriage, aes(x = race, y = college, color = person)) + geom_boxplot()
+race_data <- filter(Marriage, race == c("White","Black"))
+glimpse(race_data)
+race_plot <- ggplot(race_data, aes(x = race, y = college, color = person)) + geom_boxplot()
+race_plot 
 ```
 
 
