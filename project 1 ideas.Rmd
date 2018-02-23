@@ -10,18 +10,12 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 data(Marriage, package = "mosaicData")
 data("Marriage")
-glimpse(Marriage)
-```
-
-```{r, message = FALSE}
-library(dplyr)
-ggplot(Marriage, aes(x = race, y = age)) + geom_boxplot(aes(fill = person))
-race <- tally(Marriage, "race")
-race 
 ```
 
 
-#Use this one?
+
+
+#Luis
 ```{r, message = FALSE}
 plot <- ggplot(Marriage, aes(x = race, y = college, color = person)) + geom_boxplot()
 race_data <- filter(Marriage, race == c("White","Black"))
@@ -30,28 +24,7 @@ race_plot <- ggplot(race_data, aes(x = race, y = college, color = person)) + geo
 race_plot 
 ```
 
-
-
-```{r, message = FALSE}
-ggplot(Marriage, aes(x = person, y = college, color = race)) + geom_boxplot()
-```
-
-
-
-```{r, message = FALSE}
-ggplot(Marriage, aes(x = person, y = age, color = race)) + geom_boxplot()
-```
 #Use this one
 ```{r, message = FALSE}
 ggplot(Marriage, aes(x = prevconc, y = age, color = person)) + geom_boxplot()
 ```
-
-```{r, message = FALSE}
-ggplot(Marriage, aes(x = person, y = age, color = prevconc)) + geom_boxplot()
-``` 
-
-
-```{r, message = FALSE}
-ggplot(Marriage, aes(x = sign, y = age, color = person)) + geom_boxplot()
-```
-
