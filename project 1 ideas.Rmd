@@ -14,7 +14,10 @@ glimpse(Marriage)
 ```
 
 ```{r, message = FALSE}
+library(dplyr)
 ggplot(Marriage, aes(x = race, y = age)) + geom_boxplot(aes(fill = person))
+race <- tally(Marriage, "race")
+race 
 ```
 
 
