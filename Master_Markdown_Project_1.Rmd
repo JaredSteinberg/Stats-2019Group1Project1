@@ -46,3 +46,13 @@ agegen <- ggplot(Marriage, aes(x = person, y = age)) + geom_bar(stat = "identity
     aes(y = age))
 agegen
 ```
+
+```{r}
+ggplot(Marriage_modified, aes(x = schooling, y = age, color = person)) + geom_point()
+```
+
+
+
+
+
+
