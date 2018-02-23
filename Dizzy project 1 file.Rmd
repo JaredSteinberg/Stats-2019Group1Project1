@@ -1,0 +1,18 @@
+---
+title: "Dizzy Markdown file"
+author: "Dizzy Farbanish"
+date: "2/22/2018"
+output: html_document
+---
+
+```{r message = FALSE, echo = FALSE}
+library(tidyverse)
+
+data(Marriage, package = "mosaicData")
+```
+
+```{r}
+agegen <- ggplot(Marriage, aes(x = person, y = age)) + geom_bar(stat = "identity",
+    aes(y = age))
+agegen
+```

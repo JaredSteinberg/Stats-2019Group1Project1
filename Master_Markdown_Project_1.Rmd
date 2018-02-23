@@ -38,3 +38,11 @@ ggplot(Marriage, aes(x = prevconc, y = prevcount)) +
 ggplot(Marriage_modified, aes(x = schooling, y = prevcount)) +
   geom_count()
 ```
+
+
+#Not sure why the y axis scale is so large
+```{r}
+agegen <- ggplot(Marriage, aes(x = person, y = age)) + geom_bar(stat = "identity",
+    aes(y = age))
+agegen
+```
