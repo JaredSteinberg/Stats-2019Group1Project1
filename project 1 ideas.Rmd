@@ -17,11 +17,21 @@ data("Marriage")
 
 #Luis
 ```{r, message = FALSE}
+library(ggthemes)
 plot <- ggplot(Marriage, aes(x = race, y = college, color = person)) + geom_boxplot()
+#filtering to get keep black and white races
 race_data <- filter(Marriage, race == c("White","Black"))
-glimpse(race_data)
+
+#simple box plot
 race_plot <- ggplot(race_data, aes(x = race, y = college, color = person)) + geom_boxplot()
-race_plot 
+#simple bar graph
+race_bar <- ggplot(race_data, aes(x = college)) + geom_bar(stat= "identity",aes(y = race, color = race))
+#adding facet_wrap by race
+race_bar_facet <- race_bar + facet_wrap(~race)
+race_bar_facet <- race_bar_facet + xlab("Years of College") + ylab("Count of People")
+#race_count
+race_bar_facet <- race_bar_facet + theme_economist() 
+race_bar_facet + ggtitle("Years of College When Eloping") + theme(legend.position = "right")
 ```
 
 #Use this one
