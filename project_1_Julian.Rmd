@@ -1,6 +1,8 @@
 ---
 title: "Julian Project 1 Work"
-output: html_notebook
+output:
+  html_document: default
+  html_notebook: default
 ---
 We are using the `Marraige` dataset provided in R package `mosaicData`. It provides marriage records from the Mobile County, AL probate court between 11/9/96 and 2/6/99
 
@@ -50,15 +52,37 @@ ggplot(Marriage_modified, aes(x = schooling, y = age, color = person)) + geom_sm
 
 
 ```{r}
+#Downloaded the dataset to excel to create a column called dateDiff
+library(readr)
+Marriage_Stat209 <- read_csv("~/Stats-2019Group1Project1/Marriage_Stat209.csv")
+
 #filtering to keep only White and Black races and adds schooling column like above
 Marriage_Stat209.modified <- Marriage_Stat209 %>% filter(race %in% c("White", "Black"))
 Marriage_Stat209.modified <- Marriage_Stat209.modified %>% mutate(schooling = hs + college)
 
-ggplot(Marriage_Stat209.modified, aes(x = race, y = dateDiff)) +
-  geom_boxplot(aes(fill = race))
 ```
 
 ```{r}
+ggplot(Marriage_Stat209.modified, aes(x = race, y = dateDiff)) +
+  geom_boxplot(aes(fill = race)) + 
+  ggtitle("Days between Marriage Application and Ceremony Date") +
+  ylab("Days between Ceremony and Application Date") +
+  xlab("Race") 
+```
+
+```{r}
+
+ggplot(Marriage_Stat209.modified, aes(x= as.factor(prevcount), y = dateDiff)) +
+  facet_wrap(~race)+
+  #geom_point()+
+  geom_boxplot(aes(fill = race)) +
+  ggtitle("Time between Marriage Application and Ceremony Date") +
+  ylab("Days between Application and Ceremony") +
+  xlab("Previous Times Married")
+
+```
+
+```{r message = FALSE}
 ggplot(Marriage_Stat209.modified, aes(x = schooling, y = age, color = person)) + 
   facet_wrap(~race) +
   geom_smooth()
