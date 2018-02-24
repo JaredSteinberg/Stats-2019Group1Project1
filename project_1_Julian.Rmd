@@ -1,0 +1,66 @@
+---
+title: "Julian Project 1 Work"
+output: html_notebook
+---
+We are using the `Marraige` dataset provided in R package `mosaicData`. It provides marriage records from the Mobile County, AL probate court between 11/9/96 and 2/6/99
+
+```{r message = FALSE, echo = FALSE}
+library(tidyverse)
+data(Marriage, package = "mosaicData")
+
+```
+
+```{r}
+#plotting number of years of high school and college to age at time of marriage
+ggplot(Marriage, aes(x = hs, y = age, color = race)) + geom_point()
+ggplot(Marriage, aes(x = college, y = age, color = race)) + geom_boxplot()
+#No real significance.
+```
+
+```{r}
+#modifying the Marriage dataset to create a column that includes number of years in school which will equal hs + college
+Marriage_modified <- Marriage %>% mutate(schooling = hs + college)
+ggplot(Marriage_modified, aes(x = schooling, y = age, color = race)) + geom_point()
+```
+
+```{r}
+#plotting reason for previous divorce and number of times divorced. 
+ggplot(Marriage, aes(x = prevconc, y = prevcount)) +
+  geom_boxplot()
+```
+
+```{r}
+#plotting years in school to number of times divorced
+ggplot(Marriage_modified, aes(x = schooling, y = prevcount)) +
+  geom_count()
+```
+
+
+
+```{r}
+#Not sure why the y axis scale is so large
+agegen <- ggplot(Marriage, aes(x = person, y = age)) + geom_bar(stat = "identity",
+    aes(y = age))
+agegen
+```
+
+```{r}
+ggplot(Marriage_modified, aes(x = schooling, y = age, color = person)) + geom_smooth()
+```
+
+
+```{r}
+#filtering to keep only White and Black races and adds schooling column like above
+Marriage_Stat209.modified <- Marriage_Stat209 %>% filter(race %in% c("White", "Black"))
+Marriage_Stat209.modified <- Marriage_Stat209.modified %>% mutate(schooling = hs + college)
+
+ggplot(Marriage_Stat209.modified, aes(x = race, y = dateDiff)) +
+  geom_boxplot(aes(fill = race))
+```
+
+```{r}
+ggplot(Marriage_Stat209.modified, aes(x = schooling, y = age, color = person)) + 
+  facet_wrap(~race) +
+  geom_smooth()
+```
+
