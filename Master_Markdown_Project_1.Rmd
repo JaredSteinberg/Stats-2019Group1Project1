@@ -6,7 +6,14 @@ output:
 
 ---
 
-We are using the `Marraige` dataset provided in R package `mosaicData`. It provides marriage records from the Mobile County, AL probate court between 11/9/96 and 2/6/99
+We are using the `Marraige` dataset provided in R package `mosaicData`. It provides marriage records from the Mobile County, AL probate court between 11/9/96 and 2/6/99.  Variables recorded include:
+
+* **age - age of person**
+* **college - number of years in college**
+* **person - a factor with levels Bride and Groom**
+* **prevconc - way the last marriage ended**
+* **race - race of person, being American Indian, Black, Hispanic, and White**
+
 
 ```{r message = FALSE, echo = FALSE}
 library(tidyverse)
