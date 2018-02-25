@@ -21,3 +21,9 @@ data(Marriage, package = "mosaicData")
 
 ```
 
+
+```{r}
+marriage_plot <- ggplot(Marriage, aes(x = prevconc, y = age)) + geom_boxplot(aes(color = person), fill = "aliceblue") + theme_economist()
+marriage_plot <- marriage_plot + ggtitle("Comparison of How Prvious Marriage Ended Based on Age")
+marriage_plot
+```
