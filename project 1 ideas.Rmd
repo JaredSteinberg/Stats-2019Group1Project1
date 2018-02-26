@@ -24,8 +24,8 @@ tally_count <- race_data %>% group_by(college) %>% tally()
 my_plot <- race_data %>%
   group_by(college,race) %>%
   summarize(r_count = n()) %>%
-  ggplot(aes(x = college, y = r_count, group=race, color = race)) + geom_bar(stat = "identity")
-my_plot + facet_wrap(~race)
+  ggplot(aes(x = college, y = r_count, group=race, color = race)) + geom_bar(stat = "identity", fill="white")
+my_plot + facet_wrap(~race) + theme_economist() +ggtitle("Education When Getting Married")
 
 ```
 
