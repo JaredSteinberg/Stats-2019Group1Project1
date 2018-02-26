@@ -25,7 +25,9 @@ library(ggthemes)
 marriage_plot <- ggplot(Marriage, aes(x = prevconc, y = age)) + geom_boxplot(aes(color = person), fill = "aliceblue") + theme_economist()
 marriage_plot <- marriage_plot + ggtitle("Comparison of How Prvious Marriage Ended Based on Age") +
   xlab("Reason for Ending Previous Marriage") +
-  ylab("Age")
+  ylab("Age") +
+  theme(axis.text = element_text(size = 16), 
+        axis.title = element_text(size = 20))
 marriage_plot
 ```
 ---
@@ -59,6 +61,7 @@ my_plot <- race_data %>%
   group_by(college,race) %>%
   summarize(r_count = n()) %>%
   ggplot(aes(x = college, y = r_count, group=race, color = race)) + geom_bar(stat = "identity", fill="aliceblue")
-edu_bar <-my_plot + facet_wrap(~race) + theme_economist() +ggtitle("Education When Getting Married") + ylab("Number of People") + xlab("Years of College")
-edu_bar + +theme(axis.text=element_text(size=12), axis.title=element_text(size=14,face="bold"))
+edu_bar <-my_plot + facet_wrap(~race) + theme_economist() +ggtitle("Education When Getting Married") + ylab("Number of People") + xlab("Years of College")+
+  theme(axis.text = element_text(size = 16), 
+        axis.title = element_text(size = 20))
 ```
