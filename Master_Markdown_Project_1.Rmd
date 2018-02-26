@@ -59,5 +59,6 @@ my_plot <- race_data %>%
   group_by(college,race) %>%
   summarize(r_count = n()) %>%
   ggplot(aes(x = college, y = r_count, group=race, color = race)) + geom_bar(stat = "identity", fill="aliceblue")
-my_plot + facet_wrap(~race) + theme_economist() +ggtitle("Education When Getting Married")
+edu_bar <-my_plot + facet_wrap(~race) + theme_economist() +ggtitle("Education When Getting Married") + ylab("Number of People") + xlab("Years of College")
+edu_bar + +theme(axis.text=element_text(size=12), axis.title=element_text(size=14,face="bold"))
 ```
