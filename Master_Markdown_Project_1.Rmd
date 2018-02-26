@@ -11,6 +11,7 @@ We are using the `Marraige` dataset provided in R package `mosaicData`. It provi
 * **college - number of years in college**
 * **person - a factor with levels Bride and Groom**
 * **prevconc - way the last marriage ended**
+* **prevcount - number of previous marriages**
 * **race - race of person, being American Indian, Black, Hispanic, and White**
 
 
@@ -45,7 +46,9 @@ ggplot(Marriage.modified, aes(x= as.factor(prevcount), y = delay)) +
   ggtitle("Time between Marriage Application and Ceremony Date") +
   ylab("Ceremony Delay") +
   xlab("Previous Times Married") +
-  theme_economist()
+  theme_economist() +
+  theme(axis.text = element_text(size = 16), 
+        axis.title = element_text(size = 20))
 ```
 ---
 ```{r message = FALSE, echo = FALSE}
