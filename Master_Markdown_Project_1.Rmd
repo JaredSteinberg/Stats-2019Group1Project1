@@ -19,21 +19,24 @@ library(tidyverse)
 data(Marriage, package = "mosaicData")
 library(ggthemes)
 ```
-
-
-```{r}
+---
+```{r message = FALSE, echo = FALSE}
 marriage_plot <- ggplot(Marriage, aes(x = prevconc, y = age)) + geom_boxplot(aes(color = person), fill = "aliceblue") + theme_economist()
-marriage_plot <- marriage_plot + ggtitle("Comparison of How Prvious Marriage Ended Based on Age")
+marriage_plot <- marriage_plot + ggtitle("Comparison of How Prvious Marriage Ended Based on Age") +
+  xlab("Reason for Ending Previous Marriage") +
+  ylab("Age")
 marriage_plot
 ```
-
-```{r}
+---
+```{r message = FALSE, echo = FALSE}
 #Creates modified data set that filters out the entries for American Indian and Hispanic and creates a collumn for total years in school (high school + college)
 Marriage.modified <- Marriage %>% filter(race %in% c("White", "Black"))
 Marriage.modified <- Marriage.modified %>% mutate(schooling = hs + college)
 ```
 
-```{r}
+---
+
+```{r message = FALSE, echo = FALSE}
 #Julian
 ggplot(Marriage.modified, aes(x= as.factor(prevcount), y = delay)) +
   facet_wrap(~race)+
@@ -43,4 +46,15 @@ ggplot(Marriage.modified, aes(x= as.factor(prevcount), y = delay)) +
   ylab("Ceremony Delay") +
   xlab("Previous Times Married") +
   theme_economist()
+```
+---
+```{r message = FALSE, echo = FALSE}
+race_data <- filter(Marriage, race == c("White","Black"))
+
+tally_count <- race_data %>% group_by(college) %>% tally()
+my_plot <- race_data %>%
+  group_by(college,race) %>%
+  summarize(r_count = n()) %>%
+  ggplot(aes(x = college, y = r_count, group=race, color = race)) + geom_bar(stat = "identity", fill="aliceblue")
+my_plot + facet_wrap(~race) + theme_economist() +ggtitle("Education When Getting Married")
 ```
