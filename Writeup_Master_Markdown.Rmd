@@ -1,7 +1,7 @@
 ---
 title: "STAT 209 Project 1"
 author: "Jared Steinberg, Dizzy Farbanish, Julian Grabarek, Luis Solorzano"
-output: beamer_presentation
+output: pdf_document
 ---
 
 We are using the `Marraige` dataset provided in R package `mosaicData`. It provides marriage records from the Mobile County, AL probate court between 11/9/96 and 2/6/99.  Variables recorded include:
@@ -13,14 +13,11 @@ We are using the `Marraige` dataset provided in R package `mosaicData`. It provi
 * **prevcount - number of previous marriages**
 * **race - race of person, being American Indian, Black, Hispanic, and White**
 
-
 ```{r message = FALSE, echo = FALSE}
 library(tidyverse)
 data(Marriage, package = "mosaicData")
 library(ggthemes)
 ```
-
-----
 
 ```{r message = FALSE, echo = FALSE}
 marriage_plot <- ggplot(Marriage, aes(x = prevconc, y = age)) + geom_boxplot(aes(color = person), fill = "aliceblue") + theme_economist()
@@ -34,7 +31,6 @@ marriage_plot <- marriage_plot + ggtitle("Comparison of How Prvious Marriage End
 marriage_plot
 ```
 
-----
 
 ```{r message = FALSE, echo = FALSE}
 #Creates modified data set that filters out the entries for American Indian and Hispanic and creates a collumn for total years in school (high school + college)
@@ -60,8 +56,6 @@ delay_plot <- ggplot(Marriage.modified, aes(x= as.factor(prevcount), y = delay))
 delay_plot
 ```
 
-----
-
 ```{r message = FALSE, echo = FALSE, warning= FALSE}
 race_data <- filter(Marriage, race == c("White","Black"))
 
@@ -78,7 +72,7 @@ edu_bar <-my_plot + facet_wrap(~race) + theme_economist() +ggtitle("Education Wh
 edu_bar
 ```
 
-----
+
 
 ```{r message = FALSE, echo = FALSE}
 dizzy_plot <- ggplot(Marriage, aes(y = prevcount, x = age, color = race)) + geom_smooth(fill = "aliceblue") + theme_economist() + ylab("Previous Divorces") + xlab("Age") +
