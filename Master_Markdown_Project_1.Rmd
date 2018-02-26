@@ -1,8 +1,7 @@
 ---
 title: "STAT 209 Project 1"
 author: "Group 1"
-output:
-  html_document: default
+output: beamer_presentation
 
 ---
 
@@ -35,6 +34,7 @@ Marriage.modified <- Marriage.modified %>% mutate(schooling = hs + college)
 ```
 
 ```{r}
+#Julian
 ggplot(Marriage.modified, aes(x= as.factor(prevcount), y = delay)) +
   facet_wrap(~race)+
   #geom_point()+
