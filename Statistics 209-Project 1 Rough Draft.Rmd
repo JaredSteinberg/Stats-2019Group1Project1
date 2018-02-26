@@ -1,0 +1,29 @@
+---
+title: "Statistics 209-Project 1"
+author: "By Jared Steinberg, Luis Solorzano, Julian Grabarek, and Dizzy Farbanish"
+date: "2/23/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#About the data
+Our data comes from the Marriage dataset in the mosiacData package.  The data comes from Mobile County, Alabama, where 98 people were interviewed to discuss their marriages.  Variables recorded include:
+
+* **age - age of person**
+* appdate - formal application date
+* bookpageID - uniquely identifying the marriage
+* ceremondydate - date of the ceremony
+* **college - number of years in college**
+* dayOfBirth - day of birth as a number from 1 to 365
+* delay - number of days between the application and the ceremony
+* dob - date of birth
+* hs - number of years in high school
+* officialTitle - Bishop, Catholic, Preist, Chief, Clerk, Circuit, Judge, Elder Marriage, Official Minister, Pastor, and  Reverend
+* **person - a factor with levels Bride and Groom**
+* **prevconc - way the last marriage ended**
+* prevcount - number of previous marriages
+* **race - race of person, being American Indian, Black, Hispanic, and White**
+* sign - astrological sign
