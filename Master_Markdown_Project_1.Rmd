@@ -1,6 +1,6 @@
 ---
 title: "STAT 209 Project 1"
-author: "Group 1"
+author: "By Jared Steinberg, Luis Solorzano, Julian Grabarek, and Dizzy Farbanish"
 output:
   html_document: default
 
@@ -18,11 +18,15 @@ We are using the `Marraige` dataset provided in R package `mosaicData`. It provi
 ```{r message = FALSE, echo = FALSE}
 library(tidyverse)
 data(Marriage, package = "mosaicData")
+library(ggthemes)
 
 ```
 
 
-```{r}
+
+
+#Graph 1
+```{r, message = FALSE, echo = FALSE}
 marriage_plot <- ggplot(Marriage, aes(x = prevconc, y = age)) + geom_boxplot(aes(color = person), fill = "aliceblue") + theme_economist()
 marriage_plot <- marriage_plot + ggtitle("Comparison of How Prvious Marriage Ended Based on Age")
 marriage_plot
