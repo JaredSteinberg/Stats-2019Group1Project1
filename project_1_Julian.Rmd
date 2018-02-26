@@ -71,8 +71,10 @@ ggplot(Marriage_Stat209.modified, aes(x = race, y = dateDiff)) +
 ```
 
 ```{r}
+Marriage.modified <- Marriage %>% filter(race %in% c("White", "Black"))
+Marriage.modified <- Marriage.modified %>% mutate(schooling = hs + college)
 
-ggplot(Marriage_Stat209.modified, aes(x= as.factor(prevcount), y = dateDiff)) +
+ggplot(Marriage.modified, aes(x= as.factor(prevcount), y = delay)) +
   facet_wrap(~race)+
   #geom_point()+
   geom_boxplot(aes(fill = race)) +

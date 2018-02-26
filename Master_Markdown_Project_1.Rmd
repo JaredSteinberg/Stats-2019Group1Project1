@@ -18,7 +18,7 @@ We are using the `Marraige` dataset provided in R package `mosaicData`. It provi
 ```{r message = FALSE, echo = FALSE}
 library(tidyverse)
 data(Marriage, package = "mosaicData")
-
+library(ggthemes)
 ```
 
 
@@ -26,4 +26,21 @@ data(Marriage, package = "mosaicData")
 marriage_plot <- ggplot(Marriage, aes(x = prevconc, y = age)) + geom_boxplot(aes(color = person), fill = "aliceblue") + theme_economist()
 marriage_plot <- marriage_plot + ggtitle("Comparison of How Prvious Marriage Ended Based on Age")
 marriage_plot
+```
+
+```{r}
+#Creates modified data set that filters out the entries for American Indian and Hispanic and creates a collumn for total years in school (high school + college)
+Marriage.modified <- Marriage %>% filter(race %in% c("White", "Black"))
+Marriage.modified <- Marriage.modified %>% mutate(schooling = hs + college)
+```
+
+```{r}
+ggplot(Marriage.modified, aes(x= as.factor(prevcount), y = delay)) +
+  facet_wrap(~race)+
+  #geom_point()+
+  geom_boxplot(aes(color = race), fill = "aliceblue") +
+  ggtitle("Time between Marriage Application and Ceremony Date") +
+  ylab("Ceremony Delay") +
+  xlab("Previous Times Married") +
+  theme_economist()
 ```
