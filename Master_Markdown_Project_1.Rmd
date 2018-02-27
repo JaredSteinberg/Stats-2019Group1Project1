@@ -47,7 +47,7 @@ library(ggthemes)
 ```{r message = FALSE, echo = FALSE}
 >>>>>>> e66f134f5099fe2221ebf344e566f6d91a731ae1
 marriage_plot <- ggplot(Marriage, aes(x = prevconc, y = age)) + geom_boxplot(aes(color = person), fill = "aliceblue") + theme_economist()
-marriage_plot <- marriage_plot + ggtitle("Comparison of How Prvious Marriage Ended Based on Age") +
+marriage_plot <- marriage_plot + ggtitle("Comparison of How Previous Marriage Ended Based on Age") +
   xlab("Reason for Ending Previous Marriage") +
   ylab("Age") +
   theme(axis.text = element_text(size = 16), 
