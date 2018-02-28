@@ -45,16 +45,18 @@ delay_plot <- ggplot(Marriage.modified, aes(x= as.factor(prevcount), y = delay))
   facet_wrap(~race)+
   #geom_point()+
   geom_boxplot(aes(color = race), fill = "aliceblue") +
-  ggtitle("Time between Marriage Application and Ceremony Date") +
+  ggtitle("Delay of Marriage Application and Ceremony Date") +
   ylab("Ceremony Delay") +
   xlab("Previous Times Married") +
   theme_economist() +
-  theme(axis.text = element_text(size = 16), 
-        axis.title = element_text(size = 20)) +
-  theme(plot.title = element_text(size = 22, face = "bold")) +
+  theme(axis.text = element_text(size = 12), 
+        axis.title = element_text(size = 14)) +
+  theme(plot.title = element_text(size = 16, face = "bold")) +
   theme(plot.title = element_text(hjust = 0.5))
 delay_plot
 ```
+
+In this graph, we see the time between marriage ceremonies and the application day is relative to how many times a person was previously married. Originally, we were looking to see if racial discrimination would cause more delays for Blacks, however the opposite was true. Note that for both races, the median is delay is fairly low and constant. However, For first time whites getting married, the delay was longer. The smaler inner quartile ranges as previous marriages increases is probably due to fewer people with 2 or more previous marriages. A boxplot was chosen to show a range of ceremony delay while showing the most common delay. We also had to use the previous marriages as a factor rather than as a numeric.  
 
 ```{r message = FALSE, echo = FALSE, warning= FALSE}
 race_data <- filter(Marriage, race == c("White","Black"))
@@ -86,4 +88,6 @@ dizzy_plot
 ```
 
 
-<!-- #Data shows that older generations have actually had less divorces than younger generations. This suggests that societal norms surrounding divorce have changed from the older to the younger generations. It is expected that the divorces averages should trend up with age but it is unexpected that divorce would be lower for older people from previous generations. Additionally it is interesting to note that divorces among african americans are lower on average than white people. The difference is statistically significant at 40. -->
+Data shows that older generations have actually had less divorces than younger generations. This suggests that societal norms surrounding divorce have changed from the older to the younger generations. It is expected that the divorces averages should trend up with age but it is unexpected that divorce would be lower for older people from previous generations. Additionally it is interesting to note that divorces among african americans are lower on average than white people. The difference is statistically significant at 40.
+
+#Methodology
