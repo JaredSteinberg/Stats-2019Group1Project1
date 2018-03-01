@@ -21,15 +21,17 @@ library(ggthemes)
 
 ```{r message = FALSE, echo = FALSE}
 marriage_plot <- ggplot(Marriage, aes(x = prevconc, y = age)) + geom_boxplot(aes(color = person), fill = "aliceblue") + theme_economist()
-marriage_plot <- marriage_plot + ggtitle("Comparison of How Prvious Marriage Ended Based on Age") +
+marriage_plot <- marriage_plot + ggtitle("Previous Marriage Termination Based on Age") +
   xlab("Reason for Ending Previous Marriage") +
   ylab("Age") +
-  theme(axis.text = element_text(size = 16), 
-        axis.title = element_text(size = 20))+
-  theme(plot.title = element_text(size = 22, face = "bold")) +
+  theme(axis.text = element_text(size = 12), 
+        axis.title = element_text(size = 14))+
+  theme(plot.title = element_text(size = 16, face = "bold")) +
   theme(plot.title = element_text(hjust = 0.5))
 marriage_plot
 ```
+
+My graph illustrates how reasons for ending previous marriages change by age.  I also subdivided my boxplots by gender, with grooms being blue boxplots and brides being pink boxplots.  The data shows that, for death being the reason the previous marriage ended, women’s age vary more than men’s, however have a lower median age.  For divorcees, both intervals for men and women are approximately the same size and median age, probably because people in a relationship are usually the same age.  The N/A category shows that people who have never had a previous marriage are typically young, regardless of sex.
 
 
 ```{r message = FALSE, echo = FALSE}
@@ -67,9 +69,9 @@ my_plot <- race_data %>%
   summarize(r_count = n()) %>%
   ggplot(aes(x = college, y = r_count, group=race, color = race)) + geom_bar(stat = "identity", fill="aliceblue")
 edu_bar <-my_plot + facet_wrap(~race) + theme_economist() +ggtitle("Education When Getting Married") + ylab("Number of People") + xlab("Years of College")+
-  theme(axis.text = element_text(size = 16), 
-        axis.title = element_text(size = 20)) +
-  theme(plot.title = element_text(size = 22, face = "bold")) +
+  theme(axis.text = element_text(size = 12), 
+        axis.title = element_text(size = 14)) +
+  theme(plot.title = element_text(size = 16, face = "bold")) +
   theme(plot.title = element_text(hjust = 0.5))
 edu_bar
 ```
@@ -77,11 +79,11 @@ edu_bar
 
 
 ```{r message = FALSE, echo = FALSE}
-dizzy_plot <- ggplot(Marriage, aes(y = prevcount, x = age, color = race)) + geom_smooth(fill = "aliceblue") + theme_economist() + ylab("Previous Divorces") + xlab("Age") +
+dizzy_plot <- ggplot(Marriage, aes(y = prevcount, x = age, color = race)) + geom_smooth(fill = "aliceblue") + theme_economist() + ylab("Previous Divorces") + xlab("Age of Participant") +
   ggtitle("Comparison of Age vs. Number of Divorces") +
-  theme(axis.text = element_text(size = 16), 
-        axis.title = element_text(size = 20)) +
-  theme(plot.title = element_text(size = 22, face = "bold"))+
+  theme(axis.text = element_text(size = 12), 
+        axis.title = element_text(size = 14)) +
+  theme(plot.title = element_text(size = 16, face = "bold"))+
   theme(plot.title = element_text(hjust = 0.5))
 #+geom_spline
 dizzy_plot
@@ -89,5 +91,3 @@ dizzy_plot
 
 
 Data shows that older generations have actually had less divorces than younger generations. This suggests that societal norms surrounding divorce have changed from the older to the younger generations. It is expected that the divorces averages should trend up with age but it is unexpected that divorce would be lower for older people from previous generations. Additionally it is interesting to note that divorces among african americans are lower on average than white people. The difference is statistically significant at 40.
-
-#Methodology
