@@ -29,6 +29,8 @@ my_plot + facet_wrap(~race) + theme_economist() +ggtitle("Education When Getting
 
 ```
 
+
+
 #Luis
 ```{r, message = FALSE}
 
