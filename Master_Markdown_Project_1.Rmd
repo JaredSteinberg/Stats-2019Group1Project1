@@ -79,7 +79,10 @@ edu_bar <-my_plot + facet_wrap(~race) + theme_economist() +ggtitle("Education Wh
   theme(plot.title = element_text(hjust = 0.5))
 edu_bar
 ```
+%
+<!-- 
 
+-->
 ----
 
 ```{r message = FALSE, echo = FALSE}

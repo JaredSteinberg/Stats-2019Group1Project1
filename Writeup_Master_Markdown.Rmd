@@ -1,7 +1,7 @@
 ---
 title: "STAT 209 Project 1"
 author: "Jared Steinberg, Dizzy Farbanish, Julian Grabarek, Luis Solorzano"
-output: pdf_document
+output: html_document
 ---
 
 #Introduction
@@ -38,6 +38,9 @@ marriage_plot
 This graph illustrates how reasons for ending previous marriages change by age.  The data shows that, for death being the reason the previous marriage ended, women’s age vary more than men’s, however have a lower median age.  For divorcees, both intervals for men and women are approximately the same size and median age, probably because people in a relationship are usually the same age.  The N/A category shows that people who have never had a previous marriage are typically young, regardless of sex.
 
 
+
+
+
 ```{r message = FALSE, echo = FALSE}
 #Creates modified data set that filters out the entries for American Indian and Hispanic and creates a collumn for total years in school (high school + college)
 Marriage.modified <- Marriage %>% filter(race %in% c("White", "Black"))
@@ -64,6 +67,10 @@ delay_plot
 
 In this graph, we see the time between marriage ceremonies and the application day is relative to how many times a person was previously married. Originally, we were looking to see if racial discrimination would cause more delays for Blacks, however the opposite was true. Note that for both races, the median is delay is fairly low and constant. However, For first time whites getting married, the delay was longer. The smaller inner quartile ranges as previous marriages increases is probably due to fewer people with 2 or more previous marriages. 
 
+
+
+
+
 ```{r message = FALSE, echo = FALSE, warning= FALSE}
 #Created by Luis
 race_data <- filter(Marriage, race == c("White","Black"))
@@ -80,7 +87,12 @@ edu_bar <-my_plot + facet_wrap(~race) + theme_economist() +ggtitle("Education Wh
   theme(plot.title = element_text(hjust = 0.5))
 edu_bar
 ```
-This bar graph depicts the number of people that have completed a certain number of years upon eloping. Then the visual is separated by race to distinguish between black and white brides/grooms and their education level upon marriage. Those that did not attend college are placed in the 0 category for years. The data that this graph was derived did not include partial years such as semesters, or quarters. After analyzing the data, it is clear that most people, regardless of race, are not attending college upon getting married. A caveat to this data is that the sample size is extremely small.     
+
+This bar graph depicts the number of people that have completed a certain number of years upon eloping. Then the visual is separated by race to distinguish between black and white brides/grooms and their education level upon marriage. Those that did not attend college are placed in the 0 category for years. The data that this graph was derived did not include partial years such as semesters, or quarters. After analyzing the data, it is clear that most people, regardless of race, are not attending college upon getting married. A caveat to this data is that the sample size is extremely small.   
+
+
+
+
 
 ```{r message = FALSE, echo = FALSE}
 #Created by Dizzy
@@ -93,7 +105,9 @@ dizzy_plot <- ggplot(Marriage, aes(y = prevcount, x = age, color = race)) + geom
 #+geom_spline
 dizzy_plot
 ```
+
 Data shows that older generations have actually had less divorces than younger generations. This suggests that societal norms surrounding divorce have changed from the older to the younger generations. It is expected that the divorces averages should trend up with age but it is unexpected that divorce would be lower for older people from previous generations. Additionally it is interesting to note that divorces among african americans are lower on average than white people. The difference is statistically significant at 40, as the 95% confidence intervals of each line do not overlap.
+
 
 #Methodology
 
