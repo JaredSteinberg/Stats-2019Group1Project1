@@ -88,7 +88,7 @@ edu_bar <-my_plot + facet_wrap(~race) + theme_economist() +ggtitle("Education Wh
 edu_bar
 ```
 
-This bar graph depicts the number of people that have completed a certain number of years upon eloping. Then the visual is separated by race to distinguish between black and white brides/grooms and their education level upon marriage. Those that did not attend college are placed in the 0 category for years. The data that this graph was derived did not include partial years such as semesters, or quarters. After analyzing the data, it is clear that most people, regardless of race, are not attending college upon getting married. A caveat to this data is that the sample size is extremely small.   
+This bar graph depicts the number of people that have completed a certain number of years upon eloping. Then the visual is separated by race to distinguish between black and white brides/grooms and their education level upon marriage. Those that did not attend college are placed in the 0 category for years. The data that this graph was derived did not include partial years such as semesters, or quarters. After analyzing the data, it is clear that most people, regardless of race, are not attending college upon getting married. This data is taken from the late 90's so college attendance wasn't as sizeable as it is twenty years later. A caveat to this data is that the sample size is extremely small.   
 
 
 
