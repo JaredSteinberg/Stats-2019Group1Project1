@@ -111,5 +111,5 @@ Data shows that older generations have actually had less divorces than younger g
 
 #Methodology
 
-In general, we used boxplots for catagorical independent variables with a continuous dependent variable. We chose a bar graph when counting the quantity in a catagorical variable. Finally, we chose `geom_smooth()` in the 4th graph because we were looking for a trend line as people age rather than which ages have more divorces. When comparing race in multiple graphs, we wanted to visually show the same distinction throughout by having the colors correspond in each graph. 
+In general, we used boxplots for catagorical independent variables with a continuous dependent variable. We chose a bar graph when counting the quantity in a catagorical variable. Finally, we chose `geom_smooth()` in the 4th graph because we were looking for a trend line as people age rather than which ages have more divorces. When comparing race in multiple graphs, we wanted to visually show the same distinction throughout by having the colors correspond in each graph. Because the data set was relatively small (n = 98), there were only two people that were not white or black. We chose to filter out both the Hispanic and American Indian cases because they made the graphics harder to read while simultaneously not showing any trends.
 
